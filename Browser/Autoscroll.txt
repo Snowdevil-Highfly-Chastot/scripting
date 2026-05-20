@@ -1,0 +1,27 @@
+Open chrome dev tools;
+Paste this code:
+
+
+window.scrollTo({ top: 0, behavior: 'auto' }); // Start at top
+
+let scrollStep = 1; // px per frame
+
+let delay = 10; // ms between steps
+
+function smoothScroll() {
+
+let maxScroll = document.body.scrollHeight - window.innerHeight;
+
+let currentScroll = window.scrollY;
+
+if (currentScroll < maxScroll) {
+
+window.scrollTo({ top: currentScroll + scrollStep, behavior: 'auto' });
+
+setTimeout(smoothScroll, delay);
+
+}
+
+}
+
+smoothScroll();
