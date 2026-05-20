@@ -25,6 +25,6 @@ Since this is a living toolbox, I regularly add new scripts as manual pain point
 
 ## 📝 License
 
-This repository is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE). Feel free to use, modify, and distribute these scripts as you see fit.
+This repository is open-source and available under the [MIT License](https://opensource.org/license/MIT). Feel free to use, modify, and distribute these scripts as you see fit.
 
 
