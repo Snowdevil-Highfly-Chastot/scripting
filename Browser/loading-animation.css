@@ -1,0 +1,130 @@
+/* --- Base Overlay & Website Transitions --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scroll during load */
+  background-color: #121212;
+}
+
+#loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 9999;
+  transition: background-color 1.5s ease-in-out;
+  pointer-events: none; /* Let clicks pass through once fading */
+}
+
+/* Fades the black background to transparent */
+#loader-overlay.fade-out {
+  background-color: transparent;
+}
+
+#main-content {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+#main-content.visible {
+  opacity: 1;
+}
+
+/* --- Physics Elements --- */
+#platform {
+  position: absolute;
+  background: #333;
+  border-top: 4px solid #00ffcc;
+  border-radius: 4px;
+}
+
+#loading-text {
+  position: absolute;
+  color: #00ffcc;
+  font-family: monospace;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.physics-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+/* --- CSS Drawn Geometry --- */
+
+/* 1. Code Brackets (</>) */
+.shape-code {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  /* position: relative removed so it defaults to absolute */
+}
+.shape-code::before { content: "< />"; }
+
+/* 2. Spreadsheet Icon */
+.shape-sheet {
+  display: inline-block; 
+  width: 1em;            
+  height: 1.3em;         
+  background: currentColor;
+  border-radius: 2px;
+  /* position: relative removed so it defaults to absolute */
+}
+.shape-sheet::after {
+  content: "";
+  position: absolute;
+  top: 20%; left: 15%; right: 15%; bottom: 20%;
+  border-top: 2px solid #121212; 
+  border-bottom: 2px solid #121212;
+  border-left: 2px solid #121212;
+}
+
+/* 3. Space Invader (CSS Box-Shadow Pixel Art) */
+.shape-invader {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: transparent;
+  box-shadow: 
+    0.2em 0 0 0 currentColor, 0.8em 0 0 0 currentColor,
+    0.4em 0.2em 0 0 currentColor, 0.6em 0.2em 0 0 currentColor,
+    0 0.4em 0 0 currentColor, 0.2em 0.4em 0 0 currentColor, 0.4em 0.4em 0 0 currentColor, 0.6em 0.4em 0 0 currentColor, 0.8em 0.4em 0 0 currentColor, 1em 0.4em 0 0 currentColor,
+    0 0.6em 0 0 currentColor, 0.2em 0.6em 0 0 currentColor, 0.8em 0.6em 0 0 currentColor, 1em 0.6em 0 0 currentColor;
+}
+
+/* --- No-JS Fallback --- */
+.noscript-fallback {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  color: white;
+}
+#noscript-text {
+  position: absolute;
+  top: 50%; width: 100%; text-align: center;
+  font-family: monospace; font-size: 1.5rem;
+}
+.fallback-anim {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem;
+  color: #00ffcc;
+  animation: fallbackFall 3s infinite linear;
+}
+@keyframes fallbackFall {
+  0% { transform: translateY(-50px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}

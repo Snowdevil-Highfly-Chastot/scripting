@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyssal Dev</title>
+    
+    <!-- Bootstrap CSS (optional, since you mentioned it in your stack) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="loading-animation.css">
+</head>
+<body>
+
+    <!-- Main loader container -->
+    <div id="loader-overlay">
+      <!-- JavaScript Disabled Fallback -->
+      <noscript>
+        <div class="noscript-fallback">
+          <div class="css-shape shape-code fallback-anim" style="left: 20%; animation-delay: 0s;"></div>
+          <div class="css-shape shape-sheet fallback-anim" style="left: 50%; animation-delay: 0.5s;"></div>
+          <div class="css-shape shape-invader fallback-anim" style="left: 80%; animation-delay: 0.2s;"></div>
+          <div id="noscript-text">Loading Abyssal Dev...</div>
+        </div>
+      </noscript>
+
+      <!-- Physics Engine Elements -->
+      <div id="loading-text">Initializing parameters...</div>
+      <div id="platform"></div>
+      <div id="objects-container"></div>
+    </div>
+
+    <!-- Your actual website content goes here -->
+    <div id="main-content">
+      <div class="container mt-5 text-light">
+        <h1>Welcome to Abyssal Dev</h1>
+        <p>The redesign is live.</p>
+      </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="loading-animation.js"></script>
+    
+</body>
+</html>
