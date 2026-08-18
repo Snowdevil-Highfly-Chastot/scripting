@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const TOTAL_OBJECTS = 40; // Total number of items on screen
   const ANIMATION_DURATION_MS = 6000; // Time before dropping the platform
-  const TEXT_UPDATE_INTERVAL_MS = 2000; // How often the loading text changes
+  const TEXT_UPDATE_INTERVAL_MS = 1500; // How often the loading text changes
   
   const LOADING_MESSAGES = [
     "Initializing parameters...",
