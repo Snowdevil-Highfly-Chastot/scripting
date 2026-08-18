@@ -69,7 +69,6 @@ body, html {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  /* position: relative removed so it defaults to absolute */
 }
 .shape-code::before { content: "< />"; }
 
