@@ -75,33 +75,77 @@ body, html {
 
 /* 2. Spreadsheet Icon */
 .shape-sheet {
-  display: inline-block; 
-  width: 1em;            
-  height: 1.3em;         
-  background: currentColor;
-  border-radius: 2px;
-  /* position: relative removed so it defaults to absolute */
+  width: 1.2em;
+  height: 1.5em;
+  background-color: currentColor;
+  border-radius: 0.1em;
 }
-.shape-sheet::after {
+
+.shape-sheet::before {
+  /* The folded corner flap */
   content: "";
   position: absolute;
-  top: 20%; left: 15%; right: 15%; bottom: 20%;
-  border-top: 2px solid #121212; 
-  border-bottom: 2px solid #121212;
-  border-left: 2px solid #121212;
+  top: 0;
+  right: 0;
+  /* Using borders to create a triangle fold */
+  border-width: 0 0.4em 0.4em 0;
+  border-style: solid;
+  /* The first #121212 matches your background overlay to act as 'cutout' negative space */
+  border-color: #121212 #121212 rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 0.1em;
+}
+
+.shape-sheet::after {
+  /* Internal Grid / Spreadsheet Graphic */
+  content: "";
+  position: absolute;
+  bottom: 0.15em;
+  left: 0.15em;
+  right: 0.15em;
+  height: 0.8em;
+  background:
+    /* Horizontal lines */
+    linear-gradient(to bottom, #121212 10%, transparent 10%, transparent 45%, #121212 45%, #121212 55%, transparent 55%, transparent 90%, #121212 90%),
+    /* Vertical lines */
+    linear-gradient(to right, #121212 10%, transparent 10%, transparent 45%, #121212 45%, #121212 55%, transparent 55%, transparent 90%, #121212 90%);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 0.05em solid #121212;
 }
 
 /* 3. Space Invader (CSS Box-Shadow Pixel Art) */
 .shape-invader {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
+  /* Exact dimensions of the 11x8 sprite grid scaled by em */
+  width: 1.1em;
+  height: 0.8em;
+}
+
+.shape-invader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* The base "pixel" size */
+  width: 0.1em;
+  height: 0.1em;
   background: transparent;
-  box-shadow: 
-    0.2em 0 0 0 currentColor, 0.8em 0 0 0 currentColor,
-    0.4em 0.2em 0 0 currentColor, 0.6em 0.2em 0 0 currentColor,
-    0 0.4em 0 0 currentColor, 0.2em 0.4em 0 0 currentColor, 0.4em 0.4em 0 0 currentColor, 0.6em 0.4em 0 0 currentColor, 0.8em 0.4em 0 0 currentColor, 1em 0.4em 0 0 currentColor,
-    0 0.6em 0 0 currentColor, 0.2em 0.6em 0 0 currentColor, 0.8em 0.6em 0 0 currentColor, 1em 0.6em 0 0 currentColor;
+  /* Mapping out the classic 11x8 Invader layout */
+  box-shadow:
+    /* Row 1 */
+    0.2em 0.0em currentColor, 0.8em 0.0em currentColor,
+    /* Row 2 */
+    0.3em 0.1em currentColor, 0.7em 0.1em currentColor,
+    /* Row 3 */
+    0.2em 0.2em currentColor, 0.3em 0.2em currentColor, 0.4em 0.2em currentColor, 0.5em 0.2em currentColor, 0.6em 0.2em currentColor, 0.7em 0.2em currentColor, 0.8em 0.2em currentColor,
+    /* Row 4 */
+    0.1em 0.3em currentColor, 0.2em 0.3em currentColor, 0.4em 0.3em currentColor, 0.5em 0.3em currentColor, 0.6em 0.3em currentColor, 0.8em 0.3em currentColor, 0.9em 0.3em currentColor,
+    /* Row 5 */
+    0.0em 0.4em currentColor, 0.1em 0.4em currentColor, 0.2em 0.4em currentColor, 0.3em 0.4em currentColor, 0.4em 0.4em currentColor, 0.5em 0.4em currentColor, 0.6em 0.4em currentColor, 0.7em 0.4em currentColor, 0.8em 0.4em currentColor, 0.9em 0.4em currentColor, 1.0em 0.4em currentColor,
+    /* Row 6 */
+    0.0em 0.5em currentColor, 0.2em 0.5em currentColor, 0.3em 0.5em currentColor, 0.4em 0.5em currentColor, 0.5em 0.5em currentColor, 0.6em 0.5em currentColor, 0.7em 0.5em currentColor, 0.8em 0.5em currentColor, 1.0em 0.5em currentColor,
+    /* Row 7 */
+    0.0em 0.6em currentColor, 0.2em 0.6em currentColor, 0.8em 0.6em currentColor, 1.0em 0.6em currentColor,
+    /* Row 8 */
+    0.3em 0.7em currentColor, 0.4em 0.7em currentColor, 0.6em 0.7em currentColor, 0.7em 0.7em currentColor;
 }
 
 /* --- No-JS Fallback --- */

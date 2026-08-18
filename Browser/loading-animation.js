@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "code_symbols",
       percentage: 40, // 40% of total objects
-      size: "2rem",
+      size: "1.75rem",
       colors: ["#00ffcc", "#ffffff", "#ff007f"],
-      gravity: 0.15,
+      gravity: 0.17,
       bounce: 0.6,
       geometryClass: "shape-code"
     },
@@ -31,16 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
       percentage: 30, // 30% of total objects
       size: "1.5rem",
       colors: ["#0f9d58", "#4285f4"],
-      gravity: 0.25,
-      bounce: 0.4,
+      gravity: 0.20,
+      bounce: 0.5,
       geometryClass: "shape-sheet"
     },
     {
       id: "space_invader",
       percentage: 30, // 30% of total objects
-      size: "15px", // Base size for em-based box-shadow
+      size: "2.0rem",
       colors: ["#ff00ff", "#00ffff", "#ffff00"],
-      gravity: 0.1,
+      gravity: 0.15,
       bounce: 0.75,
       geometryClass: "shape-invader"
     }
